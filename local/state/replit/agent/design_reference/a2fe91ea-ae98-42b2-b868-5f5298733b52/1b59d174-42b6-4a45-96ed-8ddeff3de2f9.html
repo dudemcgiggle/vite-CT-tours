@@ -1,0 +1,723 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canaveral Tours - Explore Space & History</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space-blue': '#0B1426',
+                        'cosmic-blue': '#1E3A8A',
+                        'stellar-orange': '#F59E0B',
+                        'space-gray': '#374151',
+                        'moonlight': '#F8FAFC'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .star-field {
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+        }
+    </style>
+</head>
+<body class="bg-space-blue text-white">
+
+<!-- @COMPONENT: Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-effect">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold text-stellar-orange">
+                <i class="fas fa-rocket mr-2"></i>Canaveral Tours
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-stellar-orange transition-colors duration-300">Home</a>
+                <a href="#tours" class="hover:text-stellar-orange transition-colors duration-300">Tours</a>
+                <a href="#about" class="hover:text-stellar-orange transition-colors duration-300">About</a>
+                <a href="#reviews" class="hover:text-stellar-orange transition-colors duration-300">Reviews</a>
+                <a href="#contact" class="hover:text-stellar-orange transition-colors duration-300">Contact</a>
+            </div>
+            <button class="bg-stellar-orange text-space-blue px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300" data-event="click:openBooking">
+                Book Now
+            </button>
+            <div class="md:hidden">
+                <button class="text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- @END_COMPONENT: Navigation -->
+
+<!-- @COMPONENT: Hero Section -->
+<section id="home" class="relative min-h-screen flex items-center justify-center star-field">
+    <!-- Space shuttle launch with dramatic lighting and smoke -->
+    <div class="absolute inset-0 parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    
+    <div class="relative z-10 text-center px-6 animate-fade-in">
+        <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+            Explore the 
+            <span class="text-stellar-orange">Cosmos</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+            Journey through space history at Cape Canaveral Lighthouse & Space Force Station. Experience the evolution of exploration from maritime navigation to interplanetary travel.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button class="bg-stellar-orange text-space-blue px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-500 transform hover:scale-105 transition-all duration-300">
+                <i class="fas fa-rocket mr-2"></i>Launch Your Adventure
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-space-blue transition-all duration-300">
+                <i class="fas fa-play mr-2"></i>Watch Tour Preview
+            </button>
+        </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-2xl text-stellar-orange"></i>
+    </div>
+</section>
+<!-- @END_COMPONENT: Hero Section -->
+
+<!-- @COMPONENT: Tour Showcase -->
+<section id="tours" class="py-20 bg-gradient-to-b from-space-blue to-cosmic-blue">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold mb-6">Featured <span class="text-stellar-orange">Expeditions</span></h2>
+            <p class="text-xl opacity-80 max-w-2xl mx-auto">Choose your journey through time and space with our expertly guided tours</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Lighthouse Tour Card -->
+            <div class="bg-white bg-opacity-10 rounded-2xl overflow-hidden hover-lift glass-effect">
+                <!-- Cape Canaveral Lighthouse standing tall against a dramatic sunset sky -->
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Cape Canaveral Lighthouse" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-lighthouse text-stellar-orange text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-bold">Lighthouse Heritage Tour</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Discover the historic Cape Canaveral Lighthouse that guided explorers for over 150 years. Experience maritime history at its finest.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-stellar-orange font-semibold">4 hours</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm">4.8 (190 reviews)</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-stellar-orange text-space-blue py-3 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                        Book This Tour
+                    </button>
+                </div>
+            </div>
+
+            <!-- Space Force Tour Card -->
+            <div class="bg-white bg-opacity-10 rounded-2xl overflow-hidden hover-lift glass-effect">
+                <!-- Rocket launch pad with spacecraft ready for launch at Space Force Station -->
+                <img src="https://images.unsplash.com/photo-1457364887197-9150188c107b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Space Force Station" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-rocket text-stellar-orange text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-bold">Space Force Station Tour</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Exclusive access to the Space Force Missile Museum and launch facilities. Witness where history was made and the future begins.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-stellar-orange font-semibold">6 hours</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm">4.9 (156 reviews)</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-stellar-orange text-space-blue py-3 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                        Book This Tour
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wildlife Tour Card -->
+            <div class="bg-white bg-opacity-10 rounded-2xl overflow-hidden hover-lift glass-effect">
+                <!-- Diverse wildlife including manatees and birds in Merritt Island's pristine natural habitat -->
+                <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Merritt Island Wildlife" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-leaf text-stellar-orange text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-bold">Merritt Island Wildlife</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Explore pristine habitats where space technology coexists with nature. Spot manatees, dolphins, and hundreds of bird species.</p>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-stellar-orange font-semibold">5 hours</span>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-sm">4.7 (123 reviews)</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-stellar-orange text-space-blue py-3 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                        Book This Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Combination Tours -->
+        <div class="mt-16 bg-gradient-to-r from-cosmic-blue to-space-blue rounded-3xl p-8 glass-effect">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold mb-4">Complete <span class="text-stellar-orange">Experience</span></h3>
+                <p class="text-xl opacity-80">Combine multiple tours for the ultimate Cape Canaveral adventure</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                    <h4 class="text-xl font-bold mb-3">
+                        <i class="fas fa-star text-stellar-orange mr-2"></i>
+                        Ultimate Explorer Package
+                    </h4>
+                    <p class="text-gray-300 mb-4">Lighthouse + Space Force + Wildlife Tour</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-stellar-orange">Save 25%</span>
+                        <button class="bg-stellar-orange text-space-blue px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-6">
+                    <h4 class="text-xl font-bold mb-3">
+                        <i class="fas fa-rocket text-stellar-orange mr-2"></i>
+                        Space & History Combo
+                    </h4>
+                    <p class="text-gray-300 mb-4">Lighthouse + Space Force Tour</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-stellar-orange">Save 15%</span>
+                        <button class="bg-stellar-orange text-space-blue px-6 py-2 rounded-full font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Tour Showcase -->
+
+<!-- @COMPONENT: Interactive Gallery -->
+<section class="py-20 bg-space-gray">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold mb-6">Experience the <span class="text-stellar-orange">Journey</span></h2>
+            <p class="text-xl opacity-80 max-w-2xl mx-auto">See what awaits you on our incredible tours</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Tour group exploring Cape Canaveral Lighthouse interior with guide explaining historical details -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Tour Group Activity" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Spectacular space shuttle launch with bright flames and smoke billowing -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Space Shuttle Launch" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Close-up of Cape Canaveral Lighthouse's distinctive black and white stripes -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://pixabay.com/get/g2beaca372da98684cf10cc37b2952e73ea986a0944ad67b1be9ea2216e41d5fbfe563ca1eaf8b538e3545d9afb86a5cb259c2160d21361b7ed2bf11c9fae03c7_1280.jpg" alt="Lighthouse Detail" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Manatees swimming peacefully in the crystal clear waters of Merritt Island -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Merritt Island Marine Life" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Historical missiles and rockets displayed at Space Force Museum -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Space Force Station Exhibits" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Tour group enjoying wildlife observation with binoculars and cameras -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Wildlife Tour Group" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Cape Canaveral Lighthouse illuminated at night with stars in the background -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Lighthouse at Night" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+            
+            <!-- Tour group walking through Space Force Station with rockets in background -->
+            <div class="relative overflow-hidden rounded-xl hover-lift cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400" alt="Space Force Tour" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Interactive Gallery -->
+
+<!-- @COMPONENT: About Section -->
+<section id="about" class="py-20 bg-gradient-to-b from-cosmic-blue to-space-blue">
+    <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-5xl font-bold mb-8">Your Gateway to <span class="text-stellar-orange">Space History</span></h2>
+                <p class="text-xl mb-6 opacity-90">
+                    Canaveral Tours has been connecting visitors with the incredible history of space exploration for over a decade. We provide exclusive access to sites that shaped humanity's journey to the stars.
+                </p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-stellar-orange text-xl mr-4"></i>
+                        <span class="text-lg">Expert guides with aerospace backgrounds</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-stellar-orange text-xl mr-4"></i>
+                        <span class="text-lg">Exclusive access to restricted areas</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-stellar-orange text-xl mr-4"></i>
+                        <span class="text-lg">Small group sizes for personalized experience</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-stellar-orange text-xl mr-4"></i>
+                        <span class="text-lg">All safety equipment and transportation included</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-stellar-orange">10+</div>
+                        <div class="text-sm opacity-80">Years Experience</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-stellar-orange">5000+</div>
+                        <div class="text-sm opacity-80">Happy Visitors</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-stellar-orange">4.8</div>
+                        <div class="text-sm opacity-80">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <!-- Space shuttle on launch pad with clear blue sky background -->
+                <img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000" alt="Space Shuttle Ready for Launch" class="rounded-2xl shadow-2xl">
+                <div class="absolute -bottom-6 -left-6 bg-stellar-orange text-space-blue p-6 rounded-xl">
+                    <div class="text-2xl font-bold">Certified</div>
+                    <div class="text-sm">Space Tourism Operator</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: About Section -->
+
+<!-- @COMPONENT: Reviews Section -->
+<section id="reviews" class="py-20 bg-space-gray">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold mb-6">What Our <span class="text-stellar-orange">Explorers</span> Say</h2>
+            <p class="text-xl opacity-80 max-w-2xl mx-auto">Discover why thousands choose Canaveral Tours for their space exploration journey</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- @MAP: reviews.map(review => ( -->
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8 glass-effect hover-lift" data-mock="true">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-400 mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-sm opacity-80">5.0</span>
+                </div>
+                <p class="text-lg mb-6 leading-relaxed">"Absolutely incredible experience! Our guide was incredibly knowledgeable about the space program history. The lighthouse tour was fascinating and the Space Force Station access was a once-in-a-lifetime opportunity."</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue font-bold text-lg mr-4">
+                        SM
+                    </div>
+                    <div>
+                        <div class="font-semibold" data-bind="review.name">Sarah Mitchell</div>
+                        <div class="text-sm opacity-80" data-bind="review.location">Orlando, FL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8 glass-effect hover-lift" data-mock="true">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-400 mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-sm opacity-80">5.0</span>
+                </div>
+                <p class="text-lg mb-6 leading-relaxed">"The wildlife tour exceeded all expectations! We saw manatees, dolphins, and so many bird species. The combination with the lighthouse made for a perfect day. Highly recommend the complete package!"</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue font-bold text-lg mr-4">
+                        JD
+                    </div>
+                    <div>
+                        <div class="font-semibold" data-bind="review.name">James Davis</div>
+                        <div class="text-sm opacity-80" data-bind="review.location">Atlanta, GA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8 glass-effect hover-lift" data-mock="true">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-400 mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-sm opacity-80">5.0</span>
+                </div>
+                <p class="text-lg mb-6 leading-relaxed">"Educational and entertaining! As a space enthusiast, I was blown away by the access we got to historical sites. The guides really bring the stories to life. Will definitely be back with family!"</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue font-bold text-lg mr-4">
+                        ER
+                    </div>
+                    <div>
+                        <div class="font-semibold" data-bind="review.name">Emily Rodriguez</div>
+                        <div class="text-sm opacity-80" data-bind="review.location">Miami, FL</div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+
+        <div class="text-center mt-12">
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8 glass-effect inline-block">
+                <div class="flex items-center justify-center space-x-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-stellar-orange">4.8</div>
+                        <div class="flex text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-sm opacity-80">Overall Rating</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-stellar-orange">469</div>
+                        <div class="text-sm opacity-80">Total Reviews</div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fab fa-google text-4xl text-blue-500"></i>
+                        <div class="text-sm opacity-80">Google Reviews</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Reviews Section -->
+
+<!-- @COMPONENT: Booking Section -->
+<section class="py-20 bg-gradient-to-r from-cosmic-blue to-space-blue parallax-bg star-field">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-5xl font-bold mb-6">Ready to <span class="text-stellar-orange">Launch</span> Your Adventure?</h2>
+            <p class="text-xl opacity-80 max-w-2xl mx-auto">Book your space exploration journey today and create memories that will last a lifetime</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-3xl p-8 glass-effect">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Quick Booking</h3>
+                    <form class="space-y-4" data-implementation="Connect to booking system API">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Select Tour</label>
+                            <select class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg px-4 py-3 text-white">
+                                <option value="">Choose your adventure</option>
+                                <option value="lighthouse">Lighthouse Heritage Tour</option>
+                                <option value="space-force">Space Force Station Tour</option>
+                                <option value="wildlife">Merritt Island Wildlife</option>
+                                <option value="combo">Ultimate Explorer Package</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Date</label>
+                                <input type="date" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg px-4 py-3 text-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Guests</label>
+                                <select class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg px-4 py-3 text-white">
+                                    <option value="">Select</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4+ Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-stellar-orange text-space-blue py-4 rounded-full font-bold text-lg hover:bg-yellow-500 transition-colors duration-300">
+                            <i class="fas fa-rocket mr-2"></i>Check Availability
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-stellar-orange text-xl mr-4"></i>
+                            <div>
+                                <div class="font-semibold">Call Us</div>
+                                <div class="opacity-80">(321) 867-5309</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-stellar-orange text-xl mr-4"></i>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="opacity-80">info@canaverailtours.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-stellar-orange text-xl mr-4"></i>
+                            <div>
+                                <div class="font-semibold">Hours</div>
+                                <div class="opacity-80">Daily 8:00 AM - 6:00 PM</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-stellar-orange text-xl mr-4"></i>
+                            <div>
+                                <div class="font-semibold">Location</div>
+                                <div class="opacity-80">Cape Canaveral, FL</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-3">Follow Our Journey</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue hover:bg-yellow-500 transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue hover:bg-yellow-500 transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-stellar-orange rounded-full flex items-center justify-center text-space-blue hover:bg-yellow-500 transition-colors duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Booking Section -->
+
+<!-- @COMPONENT: Footer -->
+<footer class="bg-space-blue py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="text-2xl font-bold text-stellar-orange mb-4">
+                    <i class="fas fa-rocket mr-2"></i>Canaveral Tours
+                </div>
+                <p class="opacity-80 mb-4">Experience the evolution of exploration from lighthouse to launchpad with Florida's premier space and history tour company.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-stellar-orange hover:text-yellow-500 transition-colors duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-stellar-orange hover:text-yellow-500 transition-colors duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-stellar-orange hover:text-yellow-500 transition-colors duration-300">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Tours</h4>
+                <ul class="space-y-2 opacity-80">
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Lighthouse Heritage</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Space Force Station</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Merritt Island Wildlife</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Combination Packages</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Information</h4>
+                <ul class="space-y-2 opacity-80">
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">About Us</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Safety Guidelines</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Group Bookings</a></li>
+                    <li><a href="#" class="hover:text-stellar-orange transition-colors duration-300">Gift Certificates</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Contact</h4>
+                <ul class="space-y-2 opacity-80">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone mr-2 text-stellar-orange"></i>
+                        (321) 867-5309
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-2 text-stellar-orange"></i>
+                        info@canaverailtours.com
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-stellar-orange"></i>
+                        Cape Canaveral, FL
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white border-opacity-20 pt-8 mt-8 text-center opacity-80">
+            <p>&copy; 2024 Canaveral Tours. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </div>
+</footer>
+<!-- @END_COMPONENT: Footer -->
+
+<script>
+    // TODO: Implement smooth scrolling navigation
+    // TODO: Add parallax effects on scroll
+    // TODO: Implement booking system integration
+    // TODO: Add gallery lightbox functionality
+    // TODO: Add form validation and submission
+    
+    (function() {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all tour cards and sections
+        document.querySelectorAll('.hover-lift, .glass-effect').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                // TODO: Implement mobile menu toggle functionality
+                console.log('Mobile menu toggle clicked');
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
